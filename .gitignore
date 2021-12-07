@@ -23,6 +23,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+.env.example
 .env.backup
 .phpunit.result.cache
 docker-compose.override.yml
