@@ -25,6 +25,7 @@ npm-debug.log
 .env
 .env.example
 .env.backup
+include.json
 .phpunit.result.cache
 docker-compose.override.yml
 yarn-error.log
