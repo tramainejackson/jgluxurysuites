@@ -27,42 +27,33 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav flex-1">
                         <li class="nav-item">
-                            <a class="navbar-brand" href="#"><strong>JG Luxury Suites</strong></a>
+                            <a class="navbar-brand" href="{{ url('/') }}"><strong>JG Luxury Suites</strong></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="white-text" style="top: 25%;" href="{{ route('properties.index') }}">Rentals</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav flex-1 justify-content-end">
                         <li class="nav-item">
-                            <button class="btn btn-sm deep-orange rounded"><a class="nav-link">Book Now</a></button>
+                            <button class="btn btn-sm rounded white-text" style="background-color: #B321F3;"><a class="nav-link">Book Now</a></button>
                         </li>
                     </ul>
-{{--                    <ul class="navbar-nav nav-flex-icons flex-1 justify-content-end">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            @if (Route::has('login'))--}}
-{{--                                <div class="hidden fixed">--}}
-{{--                                    @auth--}}
-{{--                                        <a href="{{ url('/dashboard') }}" class="white-text">Dashboard</a>--}}
-{{--                                    @else--}}
-{{--                                        <a href="{{ route('login') }}" class="white-text">Log in</a>--}}
-{{--                                    @endauth--}}
-{{--                                </div>--}}
-{{--                            @endif--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
+
                 </div>
             </nav>
 
         </header>
         <!--Main Navigation-->
 
-        <div class="container-fluid grey lighten-3 mt-5 px-0">
+        <div class="container-fluid grey lighten-3">
 
             <div class="row">
 
-                <div class="col-12">
+                <div class="col-12 px-0">
 
                     <!-- Jumbotron -->
                     <div class="card card-image" style="background-image: url('/images/family-and-house1.jpg');">
-                        <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+                        <div class="text-white text-center rgba-stylish-strong py-5 px-4 rounded-0">
                             <div class="py-5">
 
                                 <!-- Content -->
@@ -74,6 +65,16 @@
                         </div>
                     </div>
                     <!-- Jumbotron -->
+                </div>
+
+                <div class="col-12 px-0">
+                    @foreach($properties as $property)
+
+                        <div class="white-text p-5" style="background-color: #4A21F3;">
+                            <h1 class="h1 h1-responsive title text-center">{{ $property->title }}</h1>
+                            <p class="text-justify mx-5 p-5">{{ $property->description }}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -173,5 +174,6 @@
         <script type="text/javascript" src="/js/popper.min.js"></script>
         <script type="text/javascript" src="/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/js/mdb.min.js"></script>
+        <script type="text/javascript" src="/js/scripts.js"></script>
     </body>
 </html>

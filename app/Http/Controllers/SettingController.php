@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
+use App\Models\Property;
 use App\Models\Setting;
 
 class SettingController extends Controller
@@ -11,11 +12,13 @@ class SettingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $properties = Property::all();
+
+        //Return the view
+        return view('welcome', compact('properties'));
     }
 
     /**

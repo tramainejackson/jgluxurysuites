@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBookingsRequest;
-use App\Http\Requests\UpdateBookingsRequest;
-use App\Models\Bookings;
+use App\Http\Requests\StoreMessagesRequest;
+use App\Http\Requests\UpdateMessagesRequest;
+use App\Models\Message;
 
-class BookingsController extends Controller
+class MessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class BookingsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreBookingsRequest  $request
+     * @param  \App\Http\Requests\StoreMessagesRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBookingsRequest $request)
+    public function store(StoreMessagesRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class BookingsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Bookings  $bookings
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Http\Response
      */
-    public function show(Bookings $bookings)
+    public function show(Message $messages)
     {
         //
     }
@@ -53,10 +53,10 @@ class BookingsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Bookings  $bookings
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bookings $bookings)
+    public function edit(Message $messages)
     {
         //
     }
@@ -64,11 +64,11 @@ class BookingsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateBookingsRequest  $request
-     * @param  \App\Models\Bookings  $bookings
+     * @param  \App\Http\Requests\UpdateMessagesRequest  $request
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateBookingsRequest $request, Bookings $bookings)
+    public function update(UpdateMessagesRequest $request, Message $messages)
     {
         //
     }
@@ -76,10 +76,10 @@ class BookingsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Bookings  $bookings
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bookings $bookings)
+    public function destroy(Message $messages)
     {
         //
     }

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\RecommendationController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SettingController::class, 'index']);
+
+//Route::get('/', function () {
+//    return view('welcome', [SettingController::class, 'index']);
+//});
+
+Route::resources([
+    'properties' => PropertyController::class,
+    'recommendations' => RecommendationController::class,
+    'bookings' => BookingController::class,
+]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -90,3 +90,33 @@
         </div>
     </div>
 </nav>
+
+<!--Main Navigation-->
+<header>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark blue scrolling-navbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav flex-1">
+                <li class="nav-item">
+                    <a class="navbar-brand" href="{{ url('/') }}"><strong>JG Luxury Suites</strong></a>
+                </li>
+                <li class="nav-item">
+                    <a class="white-text" style="top: 25%;" href="{{ route('properties.index') }}">Rentals</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav flex-1 justify-content-end">
+                <li class="nav-item">
+                    <button class="btn btn-sm rounded white-text" style="background-color: #B321F3;"><a class="nav-link">Book Now</a></button>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+</header>
+<!--Main Navigation-->

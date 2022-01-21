@@ -11,11 +11,13 @@ class PropertyController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return mixed
      */
-    public function index()
-    {
-        //
+    public function index() {
+        $properties = Property::all();
+
+        //Return the view
+        return view('properties.index', compact('properties'));
     }
 
     /**
@@ -42,21 +44,22 @@ class PropertyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Property  $properties
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\Property  $property
+     * @return mixed
      */
-    public function show(Property $properties)
-    {
-        //
+    public function show(Property $property) {
+
+        //Return the view
+        return view('properties.show', compact('property'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Property  $properties
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function edit(Property $properties)
+    public function edit(Property $property)
     {
         //
     }
@@ -65,10 +68,10 @@ class PropertyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatePropertyRequest  $request
-     * @param  \App\Models\Property  $properties
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePropertyRequest $request, Property $properties)
+    public function update(UpdatePropertyRequest $request, Property $property)
     {
         //
     }
@@ -76,10 +79,10 @@ class PropertyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Property  $properties
+     * @param  \App\Models\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Property $properties)
+    public function destroy(Property $property)
     {
         //
     }

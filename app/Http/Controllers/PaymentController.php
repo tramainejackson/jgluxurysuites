@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreMessagesRequest;
-use App\Http\Requests\UpdateMessagesRequest;
-use App\Models\Messages;
+use App\Http\Requests\StorePaymentsRequest;
+use App\Http\Requests\UpdatePaymentsRequest;
+use App\Models\Payment;
 
-class MessagesController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class MessagesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMessagesRequest  $request
+     * @param  \App\Http\Requests\StorePaymentsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMessagesRequest $request)
+    public function store(StorePaymentsRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class MessagesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Payment  $payments
      * @return \Illuminate\Http\Response
      */
-    public function show(Messages $messages)
+    public function show(Payment $payments)
     {
         //
     }
@@ -53,10 +53,10 @@ class MessagesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Payment  $payments
      * @return \Illuminate\Http\Response
      */
-    public function edit(Messages $messages)
+    public function edit(Payment $payments)
     {
         //
     }
@@ -64,11 +64,11 @@ class MessagesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMessagesRequest  $request
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Http\Requests\UpdatePaymentsRequest  $request
+     * @param  \App\Models\Payment  $payments
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMessagesRequest $request, Messages $messages)
+    public function update(UpdatePaymentsRequest $request, Payment $payments)
     {
         //
     }
@@ -76,10 +76,10 @@ class MessagesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Payment  $payments
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Messages $messages)
+    public function destroy(Payment $payments)
     {
         //
     }

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Messages;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class MessagesPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Messages $messages)
+    public function view(User $user, Message $messages)
     {
         //
     }
@@ -48,10 +48,10 @@ class MessagesPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Messages $messages)
+    public function update(User $user, Message $messages)
     {
         //
     }
@@ -60,10 +60,10 @@ class MessagesPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Messages $messages)
+    public function delete(User $user, Message $messages)
     {
         //
     }
@@ -72,10 +72,10 @@ class MessagesPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Messages $messages)
+    public function restore(User $user, Message $messages)
     {
         //
     }
@@ -84,10 +84,10 @@ class MessagesPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Messages  $messages
+     * @param  \App\Models\Message  $messages
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Messages $messages)
+    public function forceDelete(User $user, Message $messages)
     {
         //
     }

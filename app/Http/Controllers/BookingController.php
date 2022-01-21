@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePaymentsRequest;
-use App\Http\Requests\UpdatePaymentsRequest;
-use App\Models\Payments;
+use App\Http\Requests\StoreBookingsRequest;
+use App\Http\Requests\UpdateBookingsRequest;
+use App\Models\Booking;
 
-class PaymentsController extends Controller
+class BookingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class PaymentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePaymentsRequest  $request
+     * @param  \App\Http\Requests\StoreBookingsRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePaymentsRequest $request)
+    public function store(StoreBookingsRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class PaymentsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Payments  $payments
+     * @param  \App\Models\Booking  $bookings
      * @return \Illuminate\Http\Response
      */
-    public function show(Payments $payments)
+    public function show(Booking $bookings)
     {
         //
     }
@@ -53,10 +53,10 @@ class PaymentsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Payments  $payments
+     * @param  \App\Models\Booking  $bookings
      * @return \Illuminate\Http\Response
      */
-    public function edit(Payments $payments)
+    public function edit(Booking $bookings)
     {
         //
     }
@@ -64,11 +64,11 @@ class PaymentsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePaymentsRequest  $request
-     * @param  \App\Models\Payments  $payments
+     * @param  \App\Http\Requests\UpdateBookingsRequest  $request
+     * @param  \App\Models\Booking  $bookings
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePaymentsRequest $request, Payments $payments)
+    public function update(UpdateBookingsRequest $request, Booking $bookings)
     {
         //
     }
@@ -76,10 +76,10 @@ class PaymentsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Payments  $payments
+     * @param  \App\Models\Booking  $bookings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Payments $payments)
+    public function destroy(Booking $bookings)
     {
         //
     }
