@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small stylish-color-dark pt-4">
+<footer class="page-footer font-small lighten-2 grey black-text">
 
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
@@ -8,11 +8,12 @@
         <div class="row">
 
             <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+            <div class="col-md-4 mx-auto">
 
                 <!-- Content -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-center">JG Luxury Suites</h5>
-                <p>{{ $settings->mission }}</p>
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-center ml-lg-n3 ml-xl-0">Convo Companion</h5>
+
+                <p class="ml-md-3 ml-xl-0">{{ $settings->mission }}</p>
 
             </div>
             <!-- Grid column -->
@@ -20,12 +21,12 @@
             <hr class="clearfix w-100 d-md-none">
 
             <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+            <div class="col-md-4 mx-auto">
 
                 <!-- Links -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-center">Contact</h5>
 
-                <ul class="list-unstyled">
+                <ul class="list-unstyled ml-md-3 mr-md-n4 ml-lg-5 ml-xl-5 pl-xl-4">
                     <li>
                         <p class=""><i class="fas fa-envelope mr-3"></i> {{ $settings->email }}</p>
                     </li>
@@ -43,7 +44,7 @@
             <hr class="clearfix w-100 d-md-none">
 
             <!-- Grid column -->
-            <div class="col-md-3 mx-auto">
+            <div class="col-md-4 mx-auto">
 
                 <!-- Links -->
                 <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-center">Accepting Payments</h5>
@@ -63,26 +64,9 @@
     </div>
     <!-- Footer Links -->
 
-    <hr>
-
-    <!-- Social buttons -->
-    <ul class="list-unstyled list-inline text-center">
-        <li class="list-inline-item">
-            <a class="btn-floating btn-fb mx-1">
-                <i class="fab fa-facebook-f"> </i>
-            </a>
-        </li>
-        <li class="list-inline-item">
-            <a class="btn-floating btn-tw mx-1">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </li>
-    </ul>
-    <!-- Social buttons -->
-
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© {{ \Carbon\Carbon::now()->year }} Copyright:
-        <a href="https://mdbootstrap.com/"> TramaineJackson.com</a>
+        <a href="https://tramainejackson.com/"> TramaineJackson.com</a>
     </div>
     <!-- Copyright -->
 

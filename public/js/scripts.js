@@ -18,15 +18,6 @@ $(document).ready(function() {
     // var sideNavScrollbar = document.querySelector('.custom-scrollbar');
     // var ps = new PerfectScrollbar(sideNavScrollbar);
 
-    // Make the page header half the screen size
-    $('.page_header > div').css({'min-height':(winHeight/2) + 'px'});
-
-    // Since fixed height for nav, add nav height to container
-    $('#content_container').css({'margin-top':$('nav').height() + 'px'});
-
-    // Since fixed height for nav, add nav height to container
-    $('div.container-fluid:first').css({'margin-top': staticNavHeight + 'px'});
-
     // Animations initialization
     new WOW().init();
 
@@ -515,6 +506,9 @@ $(function () {
 $(function () {
     $("#mdb-lightbox-ui").load("/addons/mdb-lightbox-ui.html");
 });
+
+// object-fit polyfill run
+// objectFitImages();
 
 /* init Jarallax */
 jarallax(document.querySelectorAll('.jarallax'));

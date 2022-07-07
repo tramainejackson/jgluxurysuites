@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="font-sans antialiased">
+<body class="">
 <div class="grey lighten-3">
     @if(Auth::check())
         @include('components.auth-navigation')
@@ -29,7 +29,7 @@
     @endif
 
     <!-- Page Content -->
-    <main>
+    <main class="smooth-scroll">
         @yield('content')
     </main>
 </div>
@@ -46,5 +46,11 @@
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="/js/mdb.min.js"></script>
 <script type="text/javascript" src="/js/scripts.js"></script>
+
+@if(url()->current() == url('/'))
+@endif
+
+@yield('additional_scripts')
+
 </body>
 </html>

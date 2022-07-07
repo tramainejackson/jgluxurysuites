@@ -17,17 +17,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [SettingController::class, 'index']);
+Route::get('/', [SettingController::class, 'index'])->name('welcome');
+Route::get('/about', [SettingController::class, 'about'])->name('about');
+//Route::view('/about', 'about');
+//
+//Route::get('/about', function () {
+//    return view('welcome');
+//})->name('about');
 
-//Route::get('/', function () {
-//    return view('welcome', [SettingController::class, 'index']);
-//});
-
-Route::resources([
-    'properties' => PropertyController::class,
-    'recommendations' => RecommendationController::class,
-    'bookings' => BookingController::class,
-]);
+//Route::resources([
+//    'properties' => PropertyController::class,
+//    'recommendations' => RecommendationController::class,
+//    'bookings' => BookingController::class,
+//]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
