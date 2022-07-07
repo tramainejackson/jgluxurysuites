@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [SettingController::class, 'index'])->name('welcome');
 Route::get('/about', [SettingController::class, 'about'])->name('about');
+Route::get('/services', [SettingController::class, 'services'])->name('services');
 //Route::view('/about', 'about');
 //
 //Route::get('/about', function () {
