@@ -9,7 +9,7 @@
 
         <div class="row my-5">
 
-            <div class="col-12 px-0 text-center">
+            <div class="col-12 text-center">
                 <h1 class="font-bold display-4">Convo Companions</h1>
 
                 <p class="text-justify mt-3 px-lg-5 mx-lg-3 mx-xl-5">At Convo Companions, we’re passionate about
