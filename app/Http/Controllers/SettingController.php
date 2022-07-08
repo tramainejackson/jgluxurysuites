@@ -38,6 +38,15 @@ class SettingController extends Controller
         //Return the view
         return view('services');
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return mixed
+     */
+    public function application() {
+        //Return the view
+        return view('application');
+    }
 
     /**
      * Show the form for creating a new resource.

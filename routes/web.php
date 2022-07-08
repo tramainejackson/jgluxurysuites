@@ -20,11 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SettingController::class, 'index'])->name('welcome');
 Route::get('/about', [SettingController::class, 'about'])->name('about');
 Route::get('/services', [SettingController::class, 'services'])->name('services');
-//Route::view('/about', 'about');
-//
-//Route::get('/about', function () {
-//    return view('welcome');
-//})->name('about');
+Route::get('/application', [SettingController::class, 'application'])->name('application');
 
 //Route::resources([
 //    'properties' => PropertyController::class,
