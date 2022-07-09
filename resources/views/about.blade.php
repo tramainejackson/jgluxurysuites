@@ -29,7 +29,7 @@
                                 gets the chance to talk to someone outside of the prison.
                                 <br/>
                                 <br/>
-                                Some inmates get abandoned by loves ones and will not have anyone to speak outside of
+                                Some inmates get abandoned by loved ones and will not have anyone to speak outside of
                                 the walls they are confined in. I'm personally taking it into my hands to do what I can
                                 to help men and women in these situations.</p>
                         </div>

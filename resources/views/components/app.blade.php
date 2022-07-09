@@ -29,7 +29,7 @@
     @endif
 
     <!-- Page Content -->
-    <main class="smooth-scroll">
+    <main class="">
         @yield('content')
     </main>
 </div>

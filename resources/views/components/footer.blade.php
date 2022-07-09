@@ -11,7 +11,7 @@
             <div class="col-md-4 mx-auto">
 
                 <!-- Content -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-center ml-lg-n3 ml-xl-0">Convo Companion</h5>
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4 text-center ml-lg-n3 ml-xl-0">Convo Companions</h5>
 
                 <p class="ml-md-3 ml-xl-0">{{ $settings->mission }}</p>
 

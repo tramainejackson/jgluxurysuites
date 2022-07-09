@@ -38,7 +38,7 @@
                             <!--Grid column-->
                             <div class="col-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control">
+                                    <input type="email" id="email" name="email" class="form-control">
                                     <label for="email" class="">Email Address</label>
                                 </div>
                             </div>
@@ -53,19 +53,6 @@
                                 <div class="md-form mb-0">
                                     <input type="text" id="institution" name="institution" class="form-control">
                                     <label for="institution" class="">Institution</label>
-                                </div>
-                            </div>
-                            <!--Grid column-->
-                        </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="col-12">
-                                <div class="md-form mb-0">
-                                    <input type="text" id="email" name="email" class="form-control">
-                                    <label for="email" class="">Your email</label>
                                 </div>
                             </div>
                             <!--Grid column-->
@@ -116,7 +103,7 @@
                             <!--Grid column-->
                             <div class="col-12">
                                 <div class="md-form mb-0">
-                                    <input type="number" id="age" name="age" class="form-control" min="0" step="1">
+                                    <input type="number" id="age" name="age" class="form-control" min="18" step="1">
                                     <label for="age" class="">Age</label>
                                 </div>
                             </div>

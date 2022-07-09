@@ -89,6 +89,10 @@
                     older for this experience)
                 </p>
             </div>
+
+            <div class="col-12 col-lg-9 px-0 text-center mx-auto" id="disclaimer">
+                <a href="/application" class="btn btn-outline-mdb-color">Click Here To Fill Out An Application</a>
+            </div>
         </div>
     </div>
 

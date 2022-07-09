@@ -3,14 +3,14 @@
     <!-- Container wrapper -->
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand me-2" href="https://mdbgo.com/" style="font-family: 'Cormorant Garamond', serif;">
+        <a class="navbar-brand me-2" href="{{ url('/') }}" style="font-family: 'Cormorant Garamond', serif;">
             <img
                 src="{{ url('/images/convocompanions_logo.png') }}"
                 height="50"
                 alt="Convo Companion Logo"
                 loading="lazy"
                 style="margin-top: 0px;"
-            /> Convo Companion
+            /> Convo Companions
         </a>
 
         <!-- Toggle button -->
