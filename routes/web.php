@@ -21,6 +21,7 @@ Route::get('/', [SettingController::class, 'index'])->name('welcome');
 Route::get('/about', [SettingController::class, 'about'])->name('about');
 Route::get('/services', [SettingController::class, 'services'])->name('services');
 Route::get('/application', [SettingController::class, 'application'])->name('application');
+Route::post('/contact', [SettingController::class, 'send_contact'])->name('contact');
 
 //Route::resources([
 //    'properties' => PropertyController::class,

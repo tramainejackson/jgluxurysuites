@@ -1,6 +1,11 @@
 @extends('components.app')
 
 @section('additional_scripts')
+    @if (session('status'))
+        <script type="text/javascript">
+            toastr["success"]("{{ session('status') }}");
+        </script>
+    @endif
 @endsection
 
 @section('content')
@@ -45,7 +50,7 @@
                                 business
                                 and how you can get started today.</p>
 
-                            <form method="POST" action="/">
+                            <form method="POST" action="/contact" id="contact-form">
                                 @csrf
 
                                 <section>

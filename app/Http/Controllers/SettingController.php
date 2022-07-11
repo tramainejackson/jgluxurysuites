@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
+use App\Models\Message;
 use App\Models\Property;
 use App\Models\Setting;
+use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
@@ -20,8 +22,9 @@ class SettingController extends Controller
         //Return the view
         return view('welcome', compact('properties'));
     }
+
     /**
-     * Display a listing of the resource.
+     * Display the about page
      *
      * @return mixed
      */
@@ -29,8 +32,9 @@ class SettingController extends Controller
         //Return the view
         return view('about');
     }
+
     /**
-     * Display a listing of the resource.
+     * Display the servives page
      *
      * @return mixed
      */
@@ -38,14 +42,33 @@ class SettingController extends Controller
         //Return the view
         return view('services');
     }
+
     /**
-     * Display a listing of the resource.
+     * Display the application
      *
      * @return mixed
      */
     public function application() {
         //Return the view
         return view('application');
+    }
+
+    /**
+     * Post and save a contact message
+     *
+     * @return mixed
+     */
+    public function send_contact(Request $request) {
+        $message = new Message();
+
+        $message->name = $request->name;
+        $message->email = $request->email;
+        $message->subject = $request->subject;
+        $message->message = $request->message;
+
+        if($message->save()) {
+            return redirect()->route('welcome')->with('status', 'Message Sent Successfully');
+        }
     }
 
     /**

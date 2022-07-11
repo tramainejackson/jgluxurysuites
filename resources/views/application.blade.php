@@ -9,7 +9,7 @@
 
         <div class="row py-5">
 
-            <div class="col-12 col-xl-8 p-5 lighten-2 grey mx-auto rounded z-depth-1-half">
+            <div class="col-11 col-xl-8 p-5 lighten-2 grey mx-auto rounded z-depth-1-half">
 
                 <h1 class="text-center">Convo Companion Application Form</h1>
 
