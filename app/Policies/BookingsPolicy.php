@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Booking;
+use App\Models\Application;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class BookingsPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Booking  $bookings
+     * @param  \App\Models\Application  $bookings
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Booking $bookings)
+    public function view(User $user, Application $bookings)
     {
         //
     }
@@ -48,10 +48,10 @@ class BookingsPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Booking  $bookings
+     * @param  \App\Models\Application  $bookings
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Booking $bookings)
+    public function update(User $user, Application $bookings)
     {
         //
     }
@@ -60,10 +60,10 @@ class BookingsPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Booking  $bookings
+     * @param  \App\Models\Application  $bookings
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Booking $bookings)
+    public function delete(User $user, Application $bookings)
     {
         //
     }
@@ -72,10 +72,10 @@ class BookingsPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Booking  $bookings
+     * @param  \App\Models\Application  $bookings
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Booking $bookings)
+    public function restore(User $user, Application $bookings)
     {
         //
     }
@@ -84,10 +84,10 @@ class BookingsPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Booking  $bookings
+     * @param  \App\Models\Application  $bookings
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Booking $bookings)
+    public function forceDelete(User $user, Application $bookings)
     {
         //
     }

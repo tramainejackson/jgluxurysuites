@@ -44,13 +44,13 @@ class SettingController extends Controller
     }
 
     /**
-     * Display the application
+     * Display the payment options
      *
      * @return mixed
      */
-    public function application() {
+    public function payment_options() {
         //Return the view
-        return view('application');
+        return view('payment');
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\RecommendationController;
 use App\Http\Controllers\SettingController;
@@ -20,14 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SettingController::class, 'index'])->name('welcome');
 Route::get('/about', [SettingController::class, 'about'])->name('about');
 Route::get('/services', [SettingController::class, 'services'])->name('services');
-Route::get('/application', [SettingController::class, 'application'])->name('application');
+Route::get('/payment_options', [SettingController::class, 'payment_options'])->name('payment_options');
 Route::post('/contact', [SettingController::class, 'send_contact'])->name('contact');
 
-//Route::resources([
-//    'properties' => PropertyController::class,
-//    'recommendations' => RecommendationController::class,
-//    'bookings' => BookingController::class,
-//]);
+Route::resources([
+    'applications' => ApplicationController::class,
+]);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
