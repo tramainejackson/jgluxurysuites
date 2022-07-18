@@ -32,7 +32,7 @@
                 <div class="d-block d-md-flex text-center">
 
                     <!-- Column -->
-                    <div class="p-3 w-100">
+                    <div class="p-3 flex-1">
 
                         <i class="fas fa-microphone fa-5x py-5"></i>
                         <h1 class="pb-3">Standard Call</h1>
@@ -46,7 +46,7 @@
                     <!-- Column -->
 
                     <!-- Column -->
-                    <div class="p-3 w-100">
+                    <div class="p-3 flex-1">
 
                         <i class="fas fa-phone-volume fa-5x py-5"></i>
                         <h1 class="pb-3">No Holds Bar</h1>
@@ -60,7 +60,7 @@
                     <!-- Column -->
 
                     <!-- Column -->
-                    <div class="p-3 w-100">
+                    <div class="p-3 flex-1">
 
                         <i class="fas fa-headphones fa-5x py-5"></i>
                         <h1 class="pb-3">Sound Room</h1>

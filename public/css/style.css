@@ -8,3 +8,7 @@ body {
 body h1 {
     font-family: 'Cormorant Garamond', serif;
 }
+
+.flex-1 {
+    flex: 1;
+}

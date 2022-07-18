@@ -9,6 +9,30 @@ class Application extends Model
 {
     use HasFactory;
 
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'name' => NULL,
+        'email' => NULL,
+        'institution' => NULL,
+        'institution_id' => NULL,
+        'institution_address' => NULL,
+        'call_type' => NULL,
+        'call_count' => NULL,
+        'ethnicity' => NULL,
+        'age' => 18,
+        'paid' => 'N',
+    ];
+
+    /**
+     * The model's call information. Retrieve type and count
+     * @param $call_count int
+     * @param $call_type int
+     * @return array
+     */
     public function calls_information($call_type, $call_count)
     {
         $call_cost = 0;
@@ -35,9 +59,9 @@ class Application extends Model
         );
 
         foreach ($options as $call => $counts) {
-            if($call == $call_type) {
+            if ($call == $call_type) {
                 foreach ($counts as $count => $cost) {
-                    if($count == $call_count) {
+                    if ($count == $call_count) {
                         $call_cost = $cost;
                         $total_calls = $count;
 

@@ -32,16 +32,13 @@
                     <a class="nav-link" href="{{ route('welcome').'#home' }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('welcome').'#contact' }}">Contact</a>
+                    <a class="nav-link" href="/applicants">Applicants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/applications">Applicants</a>
+                    <a class="nav-link" href="/messages">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/payment_options">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/payment_options">Settings</a>
+                    <a class="nav-link" href="/settings">Settings</a>
                 </li>
             </ul>
             <!-- Left links -->

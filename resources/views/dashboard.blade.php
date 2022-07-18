@@ -22,7 +22,8 @@
 
                         <div class="card-body">
 
-                            <h5 class="card-title d-flex align-items-center justify-content-between">Applications <a href="/consults" class="btn-floating btn-sm btn-warning"><i
+                            <h5 class="card-title d-flex align-items-center justify-content-between">Applications <a
+                                    href="/consults" class="btn-floating btn-sm btn-warning"><i
                                         class="fas fa-edit"></i></a></h5>
                             <p class="card-text">You Currently Have {{ $open_consults }} Consult Request(s) That Has Not
                                 Been Responded To.</p>
@@ -92,7 +93,7 @@
             </div>
         </div>
 
-        <div class="row mb-5" id="">
+        <div class="row pb-5" id="">
 
             <div class="col-12 mb-5" id="">
 
@@ -100,7 +101,7 @@
 
                     <div class="card-body" id="">
 
-                        <form method="POST" action="/contact" id="contact-form">
+                        <form method="POST" action="/settings" id="settings-form">
                             @csrf
 
                             <div class="d-flex align-items-center justify-content-between" id="">
@@ -111,50 +112,71 @@
                                 </button>
                             </div>
 
-                            <div class="md-form input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text md-addon" id="material-addon1">$</span>
+                            <!-- Container -->
+                            <div class="d-block d-md-flex">
+                                <!-- Column -->
+                                <div class="p-3 flex-1">
+                                    <h4 class="h4">Standard Calls</h4>
+
+                                    @foreach($standard_calls as $standard_call)
+                                        <div class="md-form input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text md-addon" id="material-addon1">$</span>
+                                            </div>
+
+                                            <input name="{{ $standard_call->type }}" type="number" class="form-control"
+                                                   value="{{ $standard_call->price }}"
+                                                   placeholder="Standard Call Rate"
+                                                   step="0.01">
+
+                                            <label for="{{ $standard_call->type }}">Standard Call
+                                                Count {{ Str::after($standard_call->type, '_') }}</label>
+                                        </div>
+                                    @endforeach
                                 </div>
 
-                                <input name="accounting_rate" type="number" class="form-control"
-                                       value="{{ $setting->accounting_rate }}" placeholder="Accounting/Bookkeping Rate"
-                                       step="0.01">
+                                <!-- Column -->
+                                <div class="p-3 flex-1">
+                                    <h4 class="h4">No Holds Calls</h4>
 
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text md-addon" id="material-addon1">per hour</span>
+                                    @foreach($no_holds_calls as $no_holds_call)
+                                        <div class="md-form input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text md-addon" id="material-addon1">$</span>
+                                            </div>
+
+                                            <input name="{{ $no_holds_call->type }}" type="number" class="form-control"
+                                                   value="{{ $no_holds_call->price }}"
+                                                   placeholder="No Holds Call Rate"
+                                                   step="0.01">
+
+                                            <label for="{{ $no_holds_call->type }}">No Holds Call
+                                                Count {{ Str::after($no_holds_call->type, '_') }}</label>
+                                        </div>
+                                    @endforeach
                                 </div>
 
-                                <label for="accounting_rate">Accounting/Bookkeping Rate</label>
-                            </div>
+                                <!-- Column -->
+                                <div class="p-3 flex-1">
+                                    <h4 class="h4">Sound Room Calls</h4>
 
-                            <div class="md-form input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text md-addon" id="material-addon1">$</span>
+                                    @foreach($sound_room_calls as $sound_room_call)
+                                        <div class="md-form input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text md-addon" id="material-addon1">$</span>
+                                            </div>
+
+                                            <input name="{{ $sound_room_call->type }}" type="number"
+                                                   class="form-control"
+                                                   value="{{ $sound_room_call->price }}"
+                                                   placeholder="Sound Room Call Rate"
+                                                   step="0.01">
+
+                                            <label for="{{ $sound_room_call->type }}">Sound Room Call
+                                                Count {{ Str::after($sound_room_call->type, '_') }}</label>
+                                        </div>
+                                    @endforeach
                                 </div>
-
-                                <input name="budgeting_rate" type="number" class="form-control"
-                                       value="{{ $setting->budgeting_rate }}" placeholder="Personal Budgeting Rate"
-                                       step="0.01">
-
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text md-addon" id="material-addon1">per hour</span>
-                                </div>
-                                <label for="budgeting_rate">Personal Budgeting Rate</label>
-                            </div>
-
-                            <div class="md-form input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text md-addon" id="material-addon1">$</span>
-                                </div>
-
-                                <input name="tax_prep_rate" type="number" class="form-control"
-                                       value="{{ $setting->tax_prep_rate }}" placeholder="Tax Preparation Rate"
-                                       step="0.01">
-
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text md-addon" id="material-addon1">per hour</span>
-                                </div>
-                                <label for="tax_prep_rate">Tax Preparation Rate</label>
                             </div>
                         </form>
                     </div>

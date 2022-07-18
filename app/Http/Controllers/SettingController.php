@@ -5,9 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
 use App\Models\Message;
-use App\Models\Property;
+use App\Models\Application;
+use App\Models\Price;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class SettingController extends Controller
 {
@@ -17,10 +21,36 @@ class SettingController extends Controller
      * @return mixed
      */
     public function index() {
-        $properties = Property::all();
+        $admin = Auth::user();
+        $contact_count = Application::all();
+        $consults = Application::all();
+        $open_consults = Application::all();
+        $testimonials = Application::all();
+        $today = Carbon::now();
+        $consult_created = null;
+        $testimonial_created = null;
+        $open_consults->isNotEmpty() ? $open_consults = $open_consults->count() : $open_consults = 0;
+        $testimonials->isNotEmpty() ? $testimonials = $testimonials->count() : $testimonials = 0;
 
-        //Return the view
-        return view('welcome', compact('properties'));
+        // Create Carbon Date if there is an open consult
+        $open_consults !== 0 ? $consult_created = new Carbon(Application::all()->first()->created_at) : null;
+
+        // Create Carbon Date if there is testimonials availble
+        $testimonials !== 0 ? $testimonial_created = new Carbon(Application::all()->first()->created_at) : null;
+
+        $standard_calls = Price::StandardCalls()->get();
+        $no_holds_calls = Price::NoHoldsCalls()->get();
+        $sound_room_calls = Price::SoundRoomCalls()->get();
+
+        return view('dashboard', compact('admin', 'consults', 'open_consults', 'contact_count', 'consult_created', 'today', 'testimonials', 'testimonial_created', 'standard_calls', 'no_holds_calls', 'sound_room_calls'));
+    }
+    /**
+     * Display the web home page
+     *
+     * @return mixed
+     */
+    public function welcome() {
+        return view('welcome');
     }
 
     /**
