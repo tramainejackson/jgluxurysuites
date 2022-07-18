@@ -1,8 +1,5 @@
 @extends('components.app')
 
-@section('additional_scripts')
-@endsection
-
 @section('content')
 
     <div class="container pt-5 mt-5" id="home">
@@ -146,9 +143,9 @@
                                 <div class="md-form mb-0">
                                     <select class="mdb-select md-form" id="call_type" name="call_type">
                                         <option value="" disabled selected>Choose Call Type</option>
-                                        <option value="standard">Standard Call</option>
-                                        <option value="no_holds">No Holds Bar</option>
-                                        <option value="sound_room">Sound Room</option>
+                                        <option value="standard_call">Standard Call</option>
+                                        <option value="no_holds_call">No Holds Bar</option>
+                                        <option value="sound_room_call">Sound Room</option>
                                     </select>
                                     <label for="call_type" class="">Call Type</label>
                                 </div>

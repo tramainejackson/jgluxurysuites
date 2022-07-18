@@ -6,6 +6,7 @@ use App\Http\Requests\StoreApplicationsRequest;
 use App\Http\Requests\UpdateApplicationsRequest;
 use App\Models\Application;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ApplicationController extends Controller
 {
@@ -33,24 +34,29 @@ class ApplicationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreApplicationsRequest  $request
+     * @param \App\Http\Requests\StoreApplicationsRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreApplicationsRequest $request)
     {
         // Create new application instance
         $application = new Application();
+        // Validated data
+        $validated = $request->safe();
 
         // Add values to application variable
-        foreach ($request->safe() as $key => $value) {
-            if($key == 'sound_room_call_count') {
-                $application->call_count = $value;
-            } else {
-                $application->$key = $value;
-            }
+        foreach ($validated as $key => $value) {
+            if(Str::contains($key,'call_count'))
+                continue;
+
+            $application->$key = $value;
         }
 
-        if($application->save()) {
+        $call_information = $application->calls_information($validated['call_type'], $validated[$validated['call_type'].'_count']);
+        $application->call_count = $call_information[0];
+        $application->amount_due = $call_information[1];
+
+        if ($application->save()) {
             return redirect()->route('welcome')->with('status', 'Application sent successfully');
         }
     }
@@ -58,7 +64,7 @@ class ApplicationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Application  $bookings
+     * @param \App\Models\Application $bookings
      * @return \Illuminate\Http\Response
      */
     public function show(Application $bookings)
@@ -69,7 +75,7 @@ class ApplicationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Application  $bookings
+     * @param \App\Models\Application $bookings
      * @return \Illuminate\Http\Response
      */
     public function edit(Application $bookings)
@@ -80,8 +86,8 @@ class ApplicationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateApplicationsRequest  $request
-     * @param  \App\Models\Application  $bookings
+     * @param \App\Http\Requests\UpdateApplicationsRequest $request
+     * @param \App\Models\Application $bookings
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateApplicationsRequest $request, Application $bookings)
@@ -92,7 +98,7 @@ class ApplicationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Application  $bookings
+     * @param \App\Models\Application $bookings
      * @return \Illuminate\Http\Response
      */
     public function destroy(Application $bookings)

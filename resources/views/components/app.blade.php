@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="/css/mdb.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
+    @yield('additional_css')
+
 </head>
 
 <body class="">

@@ -35,16 +35,13 @@
                     <a class="nav-link" href="{{ route('welcome').'#contact' }}">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/about">About</a>
+                    <a class="nav-link" href="/applications">Applicants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/services">Services</a>
+                    <a class="nav-link" href="/payment_options">Messages</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/applications">Application</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/payment_options">Payments</a>
+                    <a class="nav-link" href="/payment_options">Settings</a>
                 </li>
             </ul>
             <!-- Left links -->

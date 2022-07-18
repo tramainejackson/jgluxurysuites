@@ -60,9 +60,9 @@ $(document).ready(function () {
             $(call_count_select).slideUp();
         });
 
-        if (call_type == 'standard') {
+        if (call_type === 'standard_call') {
             $('.standard_call_count_select').slideDown();
-        } else if (call_type == 'no_holds') {
+        } else if (call_type === 'no_holds_call') {
             $('.no_holds_call_count_select').slideDown();
         } else {
             $('.sound_room_call_count_select').slideDown();
