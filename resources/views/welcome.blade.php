@@ -1,13 +1,5 @@
 @extends('components.app')
 
-@section('additional_scripts')
-    @if (session('status'))
-        <script type="text/javascript">
-            toastr["success"]("{{ session('status') }}");
-        </script>
-    @endif
-@endsection
-
 @section('content')
 
     <div class="container pt-5 mt-5" id="home">

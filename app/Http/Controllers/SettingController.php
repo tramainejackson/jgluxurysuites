@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
+use App\Http\Requests\UpdatePriceRequest;
 use App\Models\Message;
 use App\Models\Application;
 use App\Models\Price;
@@ -12,44 +13,45 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 class SettingController extends Controller
 {
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->only('index', 'update', 'update_2', 'messages');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return mixed
      */
-    public function index() {
+    public function index()
+    {
         $admin = Auth::user();
-        $contact_count = Application::all();
-        $consults = Application::all();
-        $open_consults = Application::all();
-        $testimonials = Application::all();
+        $applications = Application::all();
+        $messages = Message::all();
         $today = Carbon::now();
-        $consult_created = null;
-        $testimonial_created = null;
-        $open_consults->isNotEmpty() ? $open_consults = $open_consults->count() : $open_consults = 0;
-        $testimonials->isNotEmpty() ? $testimonials = $testimonials->count() : $testimonials = 0;
-
-        // Create Carbon Date if there is an open consult
-        $open_consults !== 0 ? $consult_created = new Carbon(Application::all()->first()->created_at) : null;
-
-        // Create Carbon Date if there is testimonials availble
-        $testimonials !== 0 ? $testimonial_created = new Carbon(Application::all()->first()->created_at) : null;
-
         $standard_calls = Price::StandardCalls()->get();
         $no_holds_calls = Price::NoHoldsCalls()->get();
         $sound_room_calls = Price::SoundRoomCalls()->get();
 
-        return view('dashboard', compact('admin', 'consults', 'open_consults', 'contact_count', 'consult_created', 'today', 'testimonials', 'testimonial_created', 'standard_calls', 'no_holds_calls', 'sound_room_calls'));
+        return view('dashboard', compact('admin', 'applications', 'messages', 'today', 'standard_calls', 'no_holds_calls', 'sound_room_calls'));
     }
+
     /**
      * Display the web home page
      *
      * @return mixed
      */
-    public function welcome() {
+    public function welcome()
+    {
         return view('welcome');
     }
 
@@ -58,7 +60,8 @@ class SettingController extends Controller
      *
      * @return mixed
      */
-    public function about() {
+    public function about()
+    {
         //Return the view
         return view('about');
     }
@@ -68,7 +71,8 @@ class SettingController extends Controller
      *
      * @return mixed
      */
-    public function services() {
+    public function services()
+    {
         //Return the view
         return view('services');
     }
@@ -78,7 +82,8 @@ class SettingController extends Controller
      *
      * @return mixed
      */
-    public function payment_options() {
+    public function payment_options()
+    {
         //Return the view
         return view('payment');
     }
@@ -88,7 +93,8 @@ class SettingController extends Controller
      *
      * @return mixed
      */
-    public function send_contact(Request $request) {
+    public function send_contact(Request $request)
+    {
         $message = new Message();
 
         $message->name = $request->name;
@@ -96,7 +102,7 @@ class SettingController extends Controller
         $message->subject = $request->subject;
         $message->message = $request->message;
 
-        if($message->save()) {
+        if ($message->save()) {
             return redirect()->route('welcome')->with('status', 'Message Sent Successfully');
         }
     }
@@ -114,7 +120,7 @@ class SettingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSettingRequest  $request
+     * @param \App\Http\Requests\StoreSettingRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(StoreSettingRequest $request)
@@ -125,7 +131,7 @@ class SettingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Setting  $setting
+     * @param \App\Models\Setting $setting
      * @return \Illuminate\Http\Response
      */
     public function show(Setting $setting)
@@ -136,7 +142,7 @@ class SettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Setting  $setting
+     * @param \App\Models\Setting $setting
      * @return \Illuminate\Http\Response
      */
     public function edit(Setting $setting)
@@ -147,19 +153,69 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSettingRequest  $request
-     * @param  \App\Models\Setting  $setting
+     * @param \App\Http\Requests\UpdateSettingRequest $request
+     * @param \App\Models\Setting $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSettingRequest $request, Setting $setting)
+    public function update(UpdatePriceRequest $request, Setting $setting)
     {
-        //
+        // Get settings instance
+        // $settings = $setting;
+
+        // Validated data
+        $validated = $request->safe();
+
+        // Add values to application variable
+        foreach ($validated as $key => $value) {
+            Price::where('type', $key)
+                ->update(['price' => $value]);
+        }
+
+        return redirect()->back()->with('status', 'Prices updated successfully');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \App\Http\Requests\UpdateSettingRequest $request
+     * @param \App\Models\Setting $setting
+     * @return \Illuminate\Http\Response
+     */
+    public function update_2(UpdateSettingRequest $request, Setting $setting)
+    {
+        // Get settings instance
+        $settings = $setting;
+        dd($settings);
+        // Validated data
+        $validated = $request->safe();
+
+        // Add values to application variable
+        foreach ($validated as $key => $value) {
+            Price::where('type', $key)
+                ->update(['price' => $value]);
+        }
+
+        return redirect()->back()->with('status', 'Settings updated successfully');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \App\Models\Setting $message
+     * @return \Illuminate\Http\Response
+     */
+    public function messages()
+    {
+        // Get all messages
+        $messages = Message::all();
+
+        return view('messages', compact('messages'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Setting  $setting
+     * @param \App\Models\Setting $setting
      * @return \Illuminate\Http\Response
      */
     public function destroy(Setting $setting)

@@ -10,6 +10,17 @@ use Illuminate\Support\Str;
 
 class ApplicationController extends Controller
 {
+
+    /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'store');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +30,18 @@ class ApplicationController extends Controller
     {
         //Return the view
         return view('application');
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_applications()
+    {
+        $applications = Application::all();
+
+        //Return the view
+        return view('admin_application', compact('applications'));
     }
 
     /**

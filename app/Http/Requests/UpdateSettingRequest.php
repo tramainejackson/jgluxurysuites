@@ -13,7 +13,7 @@ class UpdateSettingRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class UpdateSettingRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+//            'sc_1' => 'required|numeric',
+//            'sc_5' => 'required|numeric',
+//            'sc_15' => 'required|numeric',
+//            'sc_30' => 'required|numeric',
+//            'nh_1' => 'required|numeric',
+//            'nh_5' => 'required|numeric',
+//            'nh_15' => 'required|numeric',
+//            'nh_35' => 'required|numeric',
+//            'sr_1' => 'required|numeric',
+//            'sr_10' => 'required|numeric',
+//            'sr_30' => 'required|numeric',
         ];
     }
 }

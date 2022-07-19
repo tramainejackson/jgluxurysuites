@@ -49,7 +49,10 @@
 <script type="text/javascript" src="/js/mdb.min.js"></script>
 <script type="text/javascript" src="/js/scripts.js"></script>
 
-@if(url()->current() == url('/'))
+@if (session('status'))
+    <script type="text/javascript">
+        toastr["success"]("{{ session('status') }}");
+    </script>
 @endif
 
 @yield('additional_scripts')

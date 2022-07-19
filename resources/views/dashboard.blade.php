@@ -12,82 +12,32 @@
 
         <div class="row" id="">
 
-            <div class="col-12" id="">
-
-                <!-- Card deck -->
-                <div class="card-deck flex-column flex-lg-row">
-
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <div class="card-body">
-
-                            <h5 class="card-title d-flex align-items-center justify-content-between">Applications <a
-                                    href="/consults" class="btn-floating btn-sm btn-warning"><i
-                                        class="fas fa-edit"></i></a></h5>
-                            <p class="card-text">You Currently Have {{ $open_consults }} Consult Request(s) That Has Not
-                                Been Responded To.</p>
-
-                            @if($open_consults !== 0)
-                                <p class="card-text"><small
-                                        class="text-muted">Requested {{ $consult_created->diffInDays($today) < 1 ? 'Today' : $consult_created->diffInDays($today) . ' days ago' }}</small>
-                                </p>
-                            @else
-                                <p class="card-text"><small class="text-muted">Requested 0 days ago</small></p>
-                            @endif
-                        </div>
-                    </div>
-
-                    <!-- Card -->
-                    {{--<div class="card mb-4">--}}
-
-                    {{--<div class="card-body">--}}
-
-                    {{--<h5 class="card-title d-flex align-items-center justify-content-between">Open Tax Returns <a class="btn-floating btn-sm btn-warning"><i class="fas fa-edit"></i></a></h5>--}}
-                    {{--<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>--}}
-                    {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
-
-                    {{--</div>--}}
-                    {{--</div>--}}
-
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <div class="card-body">
-
-                            <h5 class="card-title d-flex align-items-center justify-content-between">Messages <a
-                                    href="/recommendations" class="btn-floating btn-sm btn-warning"><i
-                                        class="fas fa-edit"></i></a></h5>
-                            <p class="card-text">You currently have {{ $testimonials }} review(s). These are your
-                                reviews from the clients that you've serviced so far. You can choose which ones display
-                                on your website.</p>
-
-                            @if($testimonials !== 0)
-                                <p class="card-text"><small class="text-muted">Testimonial
-                                        received {{ $testimonial_created->diffInDays($today) < 1 ? 'Today' : $testimonial_created->diffInDays($today) . ' days ago' }}</small>
-                                </p>
-                            @else
-                                <p class="card-text"><small class="text-muted">Last updated 0 mins ago</small></p>
-                            @endif
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" id="">
-
-            <div class="col-12" id="">
+            <div class="col-12 col-md-6" id="">
 
                 <!-- Card -->
                 <div class="card mb-4">
 
                     <div class="card-body">
 
-                        <h5 class="card-title d-flex align-items-center justify-content-between">Contacts <a
-                                href="/consult_contacts" class="btn-floating btn-sm btn-warning"><i
+                        <h5 class="card-title d-flex align-items-center justify-content-between">Applications <a
+                                href="{{ route('admin_applications') }}" class="btn-floating btn-sm btn-warning"><i
                                     class="fas fa-edit"></i></a></h5>
-                        <p class="card-text">You Currently Have {{ $contact_count->count() }} Contacts.</p>
+                        <p class="card-text">You Currently Have {{ $applications->count() }} Application(s).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6" id="">
+
+                <!-- Card -->
+                <div class="card mb-4">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title d-flex align-items-center justify-content-between">Messages <a
+                                href="{{ route('messages') }}" class="btn-floating btn-sm btn-warning"><i
+                                    class="fas fa-edit"></i></a></h5>
+                        <p class="card-text">You currently have {{ $messages->count() }} message(s).</p>
                     </div>
                 </div>
             </div>
@@ -101,8 +51,9 @@
 
                     <div class="card-body" id="">
 
-                        <form method="POST" action="/settings" id="settings-form">
+                        <form method="POST" action="/settings/{{ $setting->id }}" id="pricing-form">
                             @csrf
+                            @method('PUT')
 
                             <div class="d-flex align-items-center justify-content-between" id="">
                                 <h2 class="h2">Rates</h2>
@@ -176,6 +127,107 @@
                                                 Count {{ Str::after($sound_room_call->type, '_') }}</label>
                                         </div>
                                     @endforeach
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pb-5" id="">
+
+            <div class="col-12 mb-5" id="">
+
+                <div class="card" id="">
+
+                    <div class="card-body" id="">
+
+                        <form method="POST" action="/settings/update/{{ $setting->id }}" id="settings-form">
+                            @csrf
+                            @method('PUT')
+
+                            <div class="d-flex align-items-center justify-content-between" id="">
+                                <h2 class="h2">Settings</h2>
+
+                                <button type="submit" class="btn btn-sm btn-mdb-color" value="update_pricing_btn">Update
+                                    Settings Options
+                                </button>
+                            </div>
+
+                            <!-- Container -->
+                            <div class="d-block">
+
+                                <!-- Column -->
+                                <div class="p-3">
+
+                                    <div class="md-form">
+
+                                        <textarea name="mission" type="text" class="form-control md-textarea"
+                                                  placeholder="Enter Company Mission Statement">{{ $setting->mission }}</textarea>
+
+                                        <label for="mission">Company Mission Statement</label>
+                                    </div>
+
+                                    <div class="md-form">
+
+                                        <input name="email" type="email"
+                                               class="form-control"
+                                               value="{{ $setting->email }}"
+                                               placeholder="Enter Email Address">
+
+                                        <label for="email">Email Address</label>
+                                    </div>
+
+                                    <div class="md-form">
+
+                                        <input name="phone" type="text"
+                                               class="form-control"
+                                               value="{{ $setting->phone }}"
+                                               placeholder="Phone Number">
+
+                                        <label for="phone">Enter Phone Number</label>
+                                    </div>
+
+                                    <div class="md-form">
+
+                                        <input name="address" type="text"
+                                               class="form-control"
+                                               value="{{ $setting->address }}"
+                                               placeholder="Enter Address">
+
+                                        <label for="address">Address</label>
+                                    </div>
+
+                                    <div class="md-form">
+
+                                        <input name="city" type="text"
+                                               class="form-control"
+                                               value="{{ $setting->city }}"
+                                               placeholder="Enter City">
+
+                                        <label for="city">City</label>
+                                    </div>
+
+                                    <div class="md-form">
+
+                                        <input name="state" type="text"
+                                               class="form-control"
+                                               value="{{ $setting->state }}"
+                                               placeholder="Enter State">
+
+                                        <label for="state">State</label>
+                                    </div>
+
+                                    <div class="md-form">
+
+                                        <input name="zip" type="number"
+                                               class="form-control"
+                                               value="{{ $setting->zip }}"
+                                               placeholder="Enter Zip Code">
+
+                                        <label for="zip">Zip</label>
+                                    </div>
                                 </div>
                             </div>
                         </form>
