@@ -46,6 +46,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/payment_options">Payments</a>
                 </li>
+                <li class="nav-item">
+                    <a class="waves-effect black-text nav-link" href="{{ route('login') }}"><i
+                            class="fas fa-user"></i></i> Login</a>
+                </li>
             </ul>
             <!-- Left links -->
         </div>

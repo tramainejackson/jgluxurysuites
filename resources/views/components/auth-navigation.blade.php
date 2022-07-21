@@ -32,13 +32,24 @@
                     <a class="nav-link" href="{{ route('welcome').'#home' }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/applicants">Applicants</a>
+                    <a class="nav-link" href="/admin_applications">Applicants</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/messages">Messages</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/settings">Settings</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="waves-effect black-text nav-link" href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
             </ul>
             <!-- Left links -->

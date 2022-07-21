@@ -4788,7 +4788,7 @@ module.exports = (
         var href = url;
 
         if (msie) {
-        // IE needs attribute set twice to normalize properties
+        // IE needs attribute set twice to normalize applications
           urlParsingNode.setAttribute('href', href);
           href = urlParsingNode.href;
         }
@@ -5039,7 +5039,7 @@ validators.transitional = function transitional(validator, version, message) {
 };
 
 /**
- * Assert object's properties type
+ * Assert object's applications type
  * @param {object} options
  * @param {object} schema
  * @param {boolean?} allowUnknown
@@ -5342,7 +5342,7 @@ function forEach(obj, fn) {
 
 /**
  * Accepts varargs expecting each argument to be an object, then
- * immutably merges the properties of each object and returns result.
+ * immutably merges the applications of each object and returns result.
  *
  * When multiple objects contain the same key the later object in
  * the arguments list will take precedence.
@@ -5355,7 +5355,7 @@ function forEach(obj, fn) {
  * ```
  *
  * @param {Object} obj1 Object to merge
- * @returns {Object} Result of all merge properties
+ * @returns {Object} Result of all merge applications
  */
 function merge(/* obj1, obj2, obj3, ... */) {
   var result = {};
@@ -5378,10 +5378,10 @@ function merge(/* obj1, obj2, obj3, ... */) {
 }
 
 /**
- * Extends object a by mutably adding to it the properties of object b.
+ * Extends object a by mutably adding to it the applications of object b.
  *
  * @param {Object} a The object to be extended
- * @param {Object} b The object to copy properties from
+ * @param {Object} b The object to copy applications from
  * @param {Object} thisArg The object to bind function to
  * @return {Object} The resulting value of object a
  */
@@ -5786,7 +5786,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
   /** Used to detect strings that need a more robust regexp to match words. */
   var reHasUnicodeWord = /[a-z][A-Z]|[A-Z]{2}[a-z]|[0-9][a-zA-Z]|[a-zA-Z][0-9]|[^a-zA-Z0-9 ]/;
 
-  /** Used to assign default `context` object properties. */
+  /** Used to assign default `context` object applications. */
   var contextProps = [
     'Array', 'Buffer', 'DataView', 'Date', 'Error', 'Float32Array', 'Float64Array',
     'Function', 'Int8Array', 'Int16Array', 'Int32Array', 'Map', 'Math', 'Object',
@@ -6964,7 +6964,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /** Used to resolve the decompiled source of functions. */
     var funcToString = funcProto.toString;
 
-    /** Used to check objects for own properties. */
+    /** Used to check objects for own applications. */
     var hasOwnProperty = objectProto.hasOwnProperty;
 
     /** Used to generate unique IDs. */
@@ -7195,7 +7195,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * The base implementation of `_.create` without support for assigning
-     * properties to the created object.
+     * applications to the created object.
      *
      * @private
      * @param {Object} proto The object to inherit from.
@@ -7930,11 +7930,11 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
             !(skipIndexes && (
                // Safari 9 has enumerable `arguments.length` in strict mode.
                key == 'length' ||
-               // Node.js 0.10 has enumerable non-index properties on buffers.
+               // Node.js 0.10 has enumerable non-index applications on buffers.
                (isBuff && (key == 'offset' || key == 'parent')) ||
-               // PhantomJS 2 has enumerable non-index properties on typed arrays.
+               // PhantomJS 2 has enumerable non-index applications on typed arrays.
                (isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset')) ||
-               // Skip index properties.
+               // Skip index applications.
                isIndex(key, length)
             ))) {
           result.push(key);
@@ -8145,7 +8145,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @param {*} value The value to clone.
      * @param {boolean} bitmask The bitmask flags.
      *  1 - Deep clone
-     *  2 - Flatten inherited properties
+     *  2 - Flatten inherited applications
      *  4 - Clone symbols
      * @param {Function} [customizer] The function to customize cloning.
      * @param {string} [key] The key of `value`.
@@ -8491,7 +8491,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * The base implementation of `baseForOwn` which iterates over `object`
-     * properties returned by `keysFunc` and invokes `iteratee` for each property.
+     * applications returned by `keysFunc` and invokes `iteratee` for each property.
      * Iteratee functions may exit iteration early by explicitly returning `false`.
      *
      * @private
@@ -8503,7 +8503,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     var baseFor = createBaseFor();
 
     /**
-     * This function is like `baseFor` except that it iterates over properties
+     * This function is like `baseFor` except that it iterates over applications
      * in the opposite order.
      *
      * @private
@@ -10172,7 +10172,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Used by `_.orderBy` to compare multiple properties of a value to another
+     * Used by `_.orderBy` to compare multiple applications of a value to another
      * and stable sort them.
      *
      * If `orders` is unspecified, all values are sorted in ascending order. Otherwise,
@@ -10304,12 +10304,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Copies properties of `source` to `object`.
+     * Copies applications of `source` to `object`.
      *
      * @private
-     * @param {Object} source The object to copy properties from.
+     * @param {Object} source The object to copy applications from.
      * @param {Array} props The property identifiers to copy.
-     * @param {Object} [object={}] The object to copy properties to.
+     * @param {Object} [object={}] The object to copy applications to.
      * @param {Function} [customizer] The function to customize copied values.
      * @returns {Object} Returns `object`.
      */
@@ -11097,8 +11097,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Used by `_.defaults` to customize its `_.assignIn` use to assign properties
-     * of source objects to the destination object for all destination properties
+     * Used by `_.defaults` to customize its `_.assignIn` use to assign applications
+     * of source objects to the destination object for all destination applications
      * that resolve to `undefined`.
      *
      * @private
@@ -11187,7 +11187,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
       stack.set(array, other);
       stack.set(other, array);
 
-      // Ignore non-index properties.
+      // Ignore non-index applications.
       while (++index < arrLength) {
         var arrValue = array[index],
             othValue = other[index];
@@ -11671,7 +11671,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @private
      * @param {Object} object The object to query.
      * @param {Array|string} path The path to check.
-     * @param {Function} hasFunc The function to check properties.
+     * @param {Function} hasFunc The function to check applications.
      * @returns {boolean} Returns `true` if `path` exists, else `false`.
      */
     function hasPath(object, path, hasFunc) {
@@ -11707,7 +11707,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
       var length = array.length,
           result = new array.constructor(length);
 
-      // Add properties assigned by `RegExp#exec`.
+      // Add applications assigned by `RegExp#exec`.
       if (length && typeof array[0] == 'string' && hasOwnProperty.call(array, 'index')) {
         result.index = array.index;
         result.input = array.input;
@@ -12065,7 +12065,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This function is like
      * [`Object.keys`](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
-     * except that it includes inherited enumerable properties.
+     * except that it includes inherited enumerable applications.
      *
      * @private
      * @param {Object} object The object to query.
@@ -15382,7 +15382,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Gets the size of `collection` by returning its length for array-like
-     * values or the number of own enumerable string keyed properties for objects.
+     * values or the number of own enumerable string keyed applications for objects.
      *
      * @static
      * @memberOf _
@@ -16569,7 +16569,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * [structured clone algorithm](https://mdn.io/Structured_clone_algorithm)
      * and supports cloning arrays, array buffers, booleans, date objects, maps,
      * numbers, `Object` objects, regexes, sets, strings, symbols, and typed
-     * arrays. The own enumerable properties of `arguments` objects are cloned
+     * arrays. The own enumerable applications of `arguments` objects are cloned
      * as plain objects. An empty object is returned for uncloneable values such
      * as error objects, functions, DOM nodes, and WeakMaps.
      *
@@ -16685,7 +16685,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Checks if `object` conforms to `source` by invoking the predicate
-     * properties of `source` with the corresponding property values of `object`.
+     * applications of `source` with the corresponding property values of `object`.
      *
      * **Note:** This method is equivalent to `_.conforms` when `source` is
      * partially applied.
@@ -17009,7 +17009,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * Checks if `value` is an empty object, collection, map, or set.
      *
      * Objects are considered empty if they have no own enumerable string keyed
-     * properties.
+     * applications.
      *
      * Array-like values such as `arguments` objects, arrays, buffers, strings, or
      * jQuery-like collections are considered empty if they have a `length` of `0`.
@@ -17069,7 +17069,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * **Note:** This method supports comparing arrays, array buffers, booleans,
      * date objects, error objects, maps, numbers, `Object` objects, regexes,
      * sets, strings, symbols, and typed arrays. `Object` objects are compared
-     * by their own, not inherited, enumerable properties. Functions and DOM
+     * by their own, not inherited, enumerable applications. Functions and DOM
      * nodes are compared by strict equality, i.e. `===`.
      *
      * @static
@@ -18039,7 +18039,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Converts `value` to a plain object flattening inherited enumerable string
-     * keyed properties of `value` to own properties of the plain object.
+     * keyed applications of `value` to own applications of the plain object.
      *
      * @static
      * @memberOf _
@@ -18123,7 +18123,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /*------------------------------------------------------------------------*/
 
     /**
-     * Assigns own enumerable string keyed properties of source objects to the
+     * Assigns own enumerable string keyed applications of source objects to the
      * destination object. Source objects are applied from left to right.
      * Subsequent sources overwrite property assignments of previous sources.
      *
@@ -18168,7 +18168,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.assign` except that it iterates over own and
-     * inherited source properties.
+     * inherited source applications.
      *
      * **Note:** This method mutates `object`.
      *
@@ -18287,7 +18287,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Creates an object that inherits from the `prototype` object. If a
-     * `properties` object is given, its own enumerable string keyed properties
+     * `applications` object is given, its own enumerable string keyed applications
      * are assigned to the created object.
      *
      * @static
@@ -18295,7 +18295,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * @since 2.3.0
      * @category Object
      * @param {Object} prototype The object to inherit from.
-     * @param {Object} [properties] The properties to assign to the object.
+     * @param {Object} [properties] The applications to assign to the object.
      * @returns {Object} Returns the new object.
      * @example
      *
@@ -18325,8 +18325,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Assigns own and inherited enumerable string keyed properties of source
-     * objects to the destination object for all destination properties that
+     * Assigns own and inherited enumerable string keyed applications of source
+     * objects to the destination object for all destination applications that
      * resolve to `undefined`. Source objects are applied from left to right.
      * Once a property is set, additional values of the same property are ignored.
      *
@@ -18378,7 +18378,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.defaults` except that it recursively assigns
-     * default properties.
+     * default applications.
      *
      * **Note:** This method mutates `object`.
      *
@@ -18479,7 +18479,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Iterates over own and inherited enumerable string keyed properties of an
+     * Iterates over own and inherited enumerable string keyed applications of an
      * object and invokes `iteratee` for each property. The iteratee is invoked
      * with three arguments: (value, key, object). Iteratee functions may exit
      * iteration early by explicitly returning `false`.
@@ -18513,7 +18513,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * This method is like `_.forIn` except that it iterates over properties of
+     * This method is like `_.forIn` except that it iterates over applications of
      * `object` in the opposite order.
      *
      * @static
@@ -18545,7 +18545,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Iterates over own enumerable string keyed properties of an object and
+     * Iterates over own enumerable string keyed applications of an object and
      * invokes `iteratee` for each property. The iteratee is invoked with three
      * arguments: (value, key, object). Iteratee functions may exit iteration
      * early by explicitly returning `false`.
@@ -18577,7 +18577,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * This method is like `_.forOwn` except that it iterates over properties of
+     * This method is like `_.forOwn` except that it iterates over applications of
      * `object` in the opposite order.
      *
      * @static
@@ -18607,7 +18607,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates an array of function property names from own enumerable properties
+     * Creates an array of function property names from own enumerable applications
      * of `object`.
      *
      * @static
@@ -18635,7 +18635,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Creates an array of function property names from own and inherited
-     * enumerable properties of `object`.
+     * enumerable applications of `object`.
      *
      * @static
      * @memberOf _
@@ -18967,9 +18967,9 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * This method is like `_.assign` except that it recursively merges own and
-     * inherited enumerable string keyed properties of source objects into the
-     * destination object. Source properties that resolve to `undefined` are
-     * skipped if a destination value exists. Array and plain object properties
+     * inherited enumerable string keyed applications of source objects into the
+     * destination object. Source applications that resolve to `undefined` are
+     * skipped if a destination value exists. Array and plain object applications
      * are merged recursively. Other objects and value types are overridden by
      * assignment. Source objects are applied from left to right. Subsequent
      * sources overwrite property assignments of previous sources.
@@ -19003,7 +19003,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * This method is like `_.merge` except that it accepts `customizer` which
      * is invoked to produce the merged values of the destination and source
-     * properties. If `customizer` returns `undefined`, merging is handled by the
+     * applications. If `customizer` returns `undefined`, merging is handled by the
      * method instead. The `customizer` is invoked with six arguments:
      * (objValue, srcValue, key, object, source, stack).
      *
@@ -19079,7 +19079,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * The opposite of `_.pickBy`; this method creates an object composed of
-     * the own and inherited enumerable string keyed properties of `object` that
+     * the own and inherited enumerable string keyed applications of `object` that
      * `predicate` doesn't return truthy for. The predicate is invoked with two
      * arguments: (value, key).
      *
@@ -19102,7 +19102,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates an object composed of the picked `object` properties.
+     * Creates an object composed of the picked `object` applications.
      *
      * @static
      * @since 0.1.0
@@ -19123,7 +19123,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     });
 
     /**
-     * Creates an object composed of the `object` properties `predicate` returns
+     * Creates an object composed of the `object` applications `predicate` returns
      * truthy for. The predicate is invoked with two arguments: (value, key).
      *
      * @static
@@ -19206,8 +19206,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     /**
      * Sets the value at `path` of `object`. If a portion of `path` doesn't exist,
-     * it's created. Arrays are created for missing index properties while objects
-     * are created for all other missing properties. Use `_.setWith` to customize
+     * it's created. Arrays are created for missing index applications while objects
+     * are created for all other missing applications. Use `_.setWith` to customize
      * `path` creation.
      *
      * **Note:** This method mutates `object`.
@@ -19320,7 +19320,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     /**
      * An alternative to `_.reduce`; this method transforms `object` to a new
      * `accumulator` object which is the result of running each of its own
-     * enumerable string keyed properties thru `iteratee`, with each invocation
+     * enumerable string keyed applications thru `iteratee`, with each invocation
      * potentially mutating the `accumulator` object. If `accumulator` is not
      * provided, a new object with the same `[[Prototype]]` will be used. The
      * iteratee is invoked with four arguments: (accumulator, value, key, object).
@@ -20226,10 +20226,10 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates a compiled template function that can interpolate data properties
-     * in "interpolate" delimiters, HTML-escape interpolated data properties in
+     * Creates a compiled template function that can interpolate data applications
+     * in "interpolate" delimiters, HTML-escape interpolated data applications in
      * "escape" delimiters, and execute JavaScript in "evaluate" delimiters. Data
-     * properties may be accessed as free variables in the template. If a setting
+     * applications may be accessed as free variables in the template. If a setting
      * object is given, it takes precedence over `_.templateSettings` values.
      *
      * **Note:** In the development build `_.template` utilizes
@@ -20909,7 +20909,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     }
 
     /**
-     * Creates a function that invokes the predicate properties of `source` with
+     * Creates a function that invokes the predicate applications of `source` with
      * the corresponding property values of a given object, returning `true` if
      * all predicates return truthy, else `false`.
      *
@@ -21057,7 +21057,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
      * function. If `func` is a property name, the created function returns the
      * property value for a given element. If `func` is an array or object, the
      * created function returns `true` for elements that contain the equivalent
-     * source properties, otherwise it returns `false`.
+     * source applications, otherwise it returns `false`.
      *
      * @static
      * @since 4.0.0
@@ -21234,7 +21234,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
     });
 
     /**
-     * Adds all own enumerable string keyed function properties of a source
+     * Adds all own enumerable string keyed function applications of a source
      * object to the destination object. If `object` is a function, then methods
      * are added to its prototype as well.
      *
@@ -22919,7 +22919,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -22933,20 +22933,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/chunk loaded */
 /******/ 	(() => {
@@ -22979,7 +22979,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return result;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -22991,7 +22991,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -23003,12 +23003,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -23019,7 +23019,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -23028,11 +23028,11 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/jsonp chunk loading */
 /******/ 	(() => {
 /******/ 		// no baseURI
-/******/ 		
+/******/
 /******/ 		// object to store loaded and loading chunks
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
@@ -23040,19 +23040,19 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			"/js/app": 0,
 /******/ 			"css/app": 0
 /******/ 		};
-/******/ 		
+/******/
 /******/ 		// no chunk on demand loading
-/******/ 		
+/******/
 /******/ 		// no prefetching
-/******/ 		
+/******/
 /******/ 		// no preloaded
-/******/ 		
+/******/
 /******/ 		// no HMR
-/******/ 		
+/******/
 /******/ 		// no HMR manifest
-/******/ 		
+/******/
 /******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
+/******/
 /******/ 		// install a JSONP callback for chunk loading
 /******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
 /******/ 			var [chunkIds, moreModules, runtime] = data;
@@ -23077,20 +23077,20 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
-/******/ 		
+/******/
 /******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
-/******/ 	
+/******/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
 /******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+/******/
 /******/ })()
 ;

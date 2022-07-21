@@ -106,7 +106,7 @@
                     <a class="navbar-brand" href="{{ url('/') }}"><strong>JG Luxury Suites</strong></a>
                 </li>
                 <li class="nav-item">
-                    <a class="white-text" style="top: 25%;" href="{{ route('properties.index') }}">Rentals</a>
+                    <a class="white-text" style="top: 25%;" href="{{ route('applications.index') }}">Rentals</a>
                 </li>
             </ul>
             <ul class="navbar-nav flex-1 justify-content-end">

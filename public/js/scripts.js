@@ -34,18 +34,26 @@ $(document).ready(function () {
     // Dropdown Init
     $('.dropdown-toggle').dropdown();
 
-    // Remove flash message if there is one after 8 seconds
-    if ($('.flashMessage').length == 1) {
-        $('.flashMessage').animate({top: '+=' + ($('nav').height() + 150) + 'px'});
-        setTimeout(function () {
-            $('.flashMessage').animate({top: '-150px'}, function () {
-                // $('.flashMessage').remove();
-            });
-        }, 8000);
-    }
+    // Button toggle switch
+    $('body').on("click", "button", function(e) {
+        if(!$(this).hasClass('btn-primary') || !$(this).hasClass('btn-danger')) {
+            if($(this).children().val() == "Y") {
+                $(this).addClass('active btn-success').removeClass('btn-blue-grey').children().attr("checked", true);
+                $(this).siblings().addClass('btn-blue-grey').removeClass('active btn-danger').children().removeAttr("checked");
+
+                // Show the other options for payments
+                if($(this).hasClass('collectPayment')) {
+                    $('#payment_collection_group').slideDown();
+                }
+            } else if($(this).children().val() == 'N') {
+                $(this).addClass('active btn-danger').removeClass('btn-blue-grey').children().attr("checked", true);
+                $(this).siblings().addClass('btn-blue-grey').removeClass('active btn-success').children().removeAttr("checked");
+            }
+        }
+    });
 
     // Call function for file preview when uploading
-    // new images to properties page
+    // new images to applications page
     $("#upload_photo_input").change(function () {
         filePreview(this);
         fileLoaded(this);

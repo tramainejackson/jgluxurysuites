@@ -13,7 +13,7 @@ class UpdateApplicationsRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class UpdateApplicationsRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:100',
+            'email' => 'required|max:100',
+            'institution' => 'required|max:250',
+            'institution_id' => 'required',
+            'institution_address' => 'required|max:250',
+            'ethnicity' => 'nullable|max:100',
+            'age' => 'required',
+            'call_type' => 'required|max:100',
+            'payment_type' => 'nullable',
+            'payment_id' => 'nullable',
+            'standard_call_count' => 'nullable',
+            'no_holds_call_count' => 'nullable',
+            'sound_room_call_count' => 'nullable',
+            'completed' => 'nullable',
+            'paid' => 'nullable',
         ];
     }
 }

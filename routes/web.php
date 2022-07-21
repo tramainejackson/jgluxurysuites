@@ -23,7 +23,6 @@ Route::get('/services', [SettingController::class, 'services'])->name('services'
 Route::get('/payment_options', [SettingController::class, 'payment_options'])->name('payment_options');
 Route::post('/contact', [SettingController::class, 'send_contact'])->name('contact');
 Route::put('/settings/update/{setting}', [SettingController::class, 'update_2']);
-Route::get('/admin_applications', [ApplicationController::class, 'admin_applications'])->name('admin_applications');
 Route::get('/messages', [SettingController::class, 'messages'])->name('messages');
 
 Route::resources([

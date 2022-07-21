@@ -20,7 +20,7 @@
                     <div class="card-body">
 
                         <h5 class="card-title d-flex align-items-center justify-content-between">Applications <a
-                                href="{{ route('admin_applications') }}" class="btn-floating btn-sm btn-warning"><i
+                                href="{{ route('applications.index') }}" class="btn-floating btn-sm btn-warning"><i
                                     class="fas fa-edit"></i></a></h5>
                         <p class="card-text">You Currently Have {{ $applications->count() }} Application(s).</p>
                     </div>

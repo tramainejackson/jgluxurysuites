@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateApplicationsRequest;
 use App\Models\Application;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class ApplicationController extends Controller
 {
@@ -28,20 +29,15 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //Return the view
-        return view('application');
-    }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function admin_applications()
-    {
-        $applications = Application::all();
+        if (Auth::check()) {
+            $applications = Application::paginate(9);
 
-        //Return the view
-        return view('admin_application', compact('applications'));
+            //Return the view
+            return view('applications.index', compact('applications'));
+        } else {
+            //Return the view
+            return view('application');
+        }
     }
 
     /**
@@ -69,13 +65,13 @@ class ApplicationController extends Controller
 
         // Add values to application variable
         foreach ($validated as $key => $value) {
-            if(Str::contains($key,'call_count'))
+            if (Str::contains($key, 'call_count'))
                 continue;
 
             $application->$key = $value;
         }
 
-        $call_information = $application->calls_information($validated['call_type'], $validated[$validated['call_type'].'_count']);
+        $call_information = $application->calls_information($validated['call_type'], $validated[$validated['call_type'] . '_count']);
         $application->call_count = $call_information[0];
         $application->amount_due = $call_information[1];
 
@@ -87,44 +83,46 @@ class ApplicationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Application $bookings
+     * @param \App\Models\Application $application
      * @return \Illuminate\Http\Response
      */
-    public function show(Application $bookings)
+    public function show(Application $application)
     {
-        //
+        //Return the view
+        return view('applications.show', compact('application'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Application $bookings
+     * @param \App\Models\Application $application
      * @return \Illuminate\Http\Response
      */
-    public function edit(Application $bookings)
+    public function edit(Application $application)
     {
-        //
+        //Return the view
+        return view('applications.edit', compact('application'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \App\Http\Requests\UpdateApplicationsRequest $request
-     * @param \App\Models\Application $bookings
+     * @param \App\Models\Application $application
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateApplicationsRequest $request, Application $bookings)
+    public function update(UpdateApplicationsRequest $request, Application $application)
     {
-        //
+        dd($request);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Application $bookings
+     * @param \App\Models\Application $application
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Application $bookings)
+    public function destroy(Application $application)
     {
         //
     }
