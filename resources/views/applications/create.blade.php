@@ -6,9 +6,13 @@
 
         <div class="row py-5">
 
+            <div class="col-12 text-center">
+                <a href="/applications" class="btn btn-outline-blue-grey my-3">Back</a>
+            </div>
+
             <div class="col-11 col-xl-8 p-5 lighten-2 grey mx-auto rounded z-depth-1-half">
 
-                <h1 class="text-center">Convo Companion Application Form</h1>
+                <h1 class="text-center">Create Convo Companion Application Form</h1>
 
                 <form method="POST" action="/applications" id="application-form">
                     @csrf
@@ -20,7 +24,8 @@
                             <!--Grid column-->
                             <div class="col-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="name" name="name" class="form-control" value="{{ old('name') ? old('name') : '' }}" />
+                                    <input type="text" id="name" name="name" class="form-control"
+                                           value="{{ old('name') ? old('name') : '' }}"/>
                                     <label for="name" class="">Name</label>
                                 </div>
 
@@ -37,7 +42,8 @@
                             <!--Grid column-->
                             <div class="col-12">
                                 <div class="md-form mb-0">
-                                    <input type="email" id="email" name="email" class="form-control" value="{{ old('email') ? old('email') : '' }}" />
+                                    <input type="email" id="email" name="email" class="form-control"
+                                           value="{{ old('email') ? old('email') : '' }}"/>
                                     <label for="email" class="">Email Address</label>
                                 </div>
 
@@ -54,7 +60,8 @@
                             <!--Grid column-->
                             <div class="col-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="institution" name="institution" class="form-control" value="{{ old('institution') ? old('institution') : '' }}" />
+                                    <input type="text" id="institution" name="institution" class="form-control"
+                                           value="{{ old('institution') ? old('institution') : '' }}"/>
                                     <label for="institution" class="">Institution</label>
                                 </div>
 
@@ -72,7 +79,8 @@
                             <div class="col-12">
                                 <div class="md-form mb-0">
                                     <input type="number" id="institution_id" name="institution_id" class="form-control"
-                                           min="0" step="1" value="{{ old('institution_id') ? old('institution_id') : '' }}" />
+                                           min="0" step="1"
+                                           value="{{ old('institution_id') ? old('institution_id') : '' }}"/>
                                     <label for="institution_id" class="">Institution ID</label>
                                 </div>
 
@@ -90,7 +98,8 @@
                             <div class="col-12">
                                 <div class="md-form mb-0">
                                     <input type="text" id="institution_address" name="institution_address"
-                                           class="form-control" value="{{ old('institution_address') ? old('institution_address') : '' }}" />
+                                           class="form-control"
+                                           value="{{ old('institution_address') ? old('institution_address') : '' }}"/>
                                     <label for="institution_address" class="">Institution Address</label>
                                 </div>
 
@@ -107,7 +116,8 @@
                             <!--Grid column-->
                             <div class="col-12">
                                 <div class="md-form mb-0">
-                                    <input type="text" id="ethnicity" name="ethnicity" class="form-control" value="{{ old('ethnicity') ? old('ethnicity') : '' }}" />
+                                    <input type="text" id="ethnicity" name="ethnicity" class="form-control"
+                                           value="{{ old('ethnicity') ? old('ethnicity') : '' }}"/>
                                     <label for="ethnicity" class="">Ethnicity</label>
                                 </div>
 
@@ -124,7 +134,8 @@
                             <!--Grid column-->
                             <div class="col-12">
                                 <div class="md-form mb-0">
-                                    <input type="number" id="age" name="age" class="form-control" min="18" step="1" value="{{ old('age') ? old('age') : '' }}" />
+                                    <input type="number" id="age" name="age" class="form-control" min="18" step="1"
+                                           value="{{ old('age') ? old('age') : '' }}"/>
                                     <label for="age" class="">Age</label>
                                 </div>
 
@@ -223,6 +234,62 @@
 
                                 @if ($errors->has('sound_room_call_count'))
                                     <p class="red-text">{{ $errors->first('sound_room_call_count') }}</p>
+                                @endif
+                            </div>
+                            <!--Grid column-->
+                        </div>
+                        <!--Grid row-->
+
+                        @if($customers->isNotEmpty())
+                            <!--Grid row-->
+                            <div class="row customer_profile_select" style="">
+                                <!--Grid column-->
+                                <div class="col-12">
+                                    <div class="md-form mb-0">
+                                        <select class="mdb-select md-form" id="customer_id"
+                                                name="customer_id">
+                                            <option value="" disabled selected>Choose A Customer To Associate With
+                                            </option>
+
+                                            @foreach($customers as $customer)
+                                                <option value="{{ $customer->id }}" {{ $use_customer > 0 && $use_customer == $customer->id ? 'selected' : '' }}>{{ $customer->name }}</option>
+                                            @endforeach
+
+                                        </select>
+                                        <label for="customer_id" class="">Customers</label>
+                                    </div>
+
+                                    @if ($errors->has('customer_id'))
+                                        <p class="red-text">{{ $errors->first('customer_id') }}</p>
+                                    @endif
+                                </div>
+                                <!--Grid column-->
+                            </div>
+                            <!--Grid row-->
+                        @endif
+
+                        <!--Grid row-->
+                        <div class="row">
+                            <!--Grid column-->
+                            <div class="form-group col-12 text-center">
+                                <label class="d-block form-control-label" for="paid">Create New Customer
+                                    Profile?</label>
+
+                                <div class="btn-group">
+                                    <button type="button"
+                                            class="btn btn-rounded btn-blue-grey"
+                                            style="line-height:1.5">
+                                        <input type="checkbox" name="create_customer" value="Y" hidden/>Yes
+                                    </button>
+                                    <button type="button"
+                                            class="btn btn-rounded active btn-danger"
+                                            style="line-height:1.5">
+                                        <input type="checkbox" name="create_customer" value="N" hidden/>No
+                                    </button>
+                                </div>
+
+                                @if ($errors->has('create_customer'))
+                                    <p class="red-text">{{ $errors->first('create_customer') }}</p>
                                 @endif
                             </div>
                             <!--Grid column-->

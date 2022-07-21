@@ -235,7 +235,7 @@
                         </div>
 
                     </section>
-                    <!--Section: Contact v.2-->
+                    <!--Section: Customer v.2-->
                 </form>
             </div>
         </div>

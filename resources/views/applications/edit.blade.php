@@ -14,7 +14,17 @@
 
                 <h1 class="text-center">Convo Companion Application Form</h1>
 
-                <form method="POST" action="{{ action([\App\Http\Controllers\ApplicationController::class, 'update'], $application) }}" id="application-update-form">
+                @if($application->customer)
+                    <div class="text-center">
+                        <a class="btn btn-outline-mdb-color"
+                           href="{{ action([\App\Http\Controllers\CustomerController::class, 'edit'], $application->customer) }}">See
+                            Customer Profile</a>
+                    </div>
+                @endif
+
+                <form method="POST"
+                      action="{{ action([\App\Http\Controllers\ApplicationController::class, 'update'], $application) }}"
+                      id="application-update-form">
                     @csrf
                     @method('PUT')
 
@@ -318,7 +328,7 @@
                         </div>
 
                     </section>
-                    <!--Section: Contact v.2-->
+                    <!--Section: Customer v.2-->
                 </form>
             </div>
         </div>

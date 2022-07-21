@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreApplicationsRequest;
 use App\Http\Requests\UpdateApplicationsRequest;
+use App\Models\Customer;
 use App\Models\Application;
+use Cassandra\Custom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +49,21 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        $use_customer = 0;
+        $customers = Customer::all();
+
+        if(\request()->query('customer') > 0 && !empty(\request()->query())) {
+            if(\request()->query('customer') > 0) {
+                $customer = Customer::find(\request()->query('customer'));
+
+                if($customer) {
+                    $use_customer = $customer->id;
+                }
+            }
+        }
+
+        //Return the view
+        return view('applications.create', compact('customers', 'use_customer'));
     }
 
     /**
@@ -113,7 +129,17 @@ class ApplicationController extends Controller
      */
     public function update(UpdateApplicationsRequest $request, Application $application)
     {
-        dd($request);
+        // Validated data
+        $validated = $request->safe();
+
+        // Add values to application variable
+        foreach ($validated as $key => $value) {
+            $application->$key = $value;
+        }
+
+        if($application->save()) {
+            return redirect()->back()->with('status', 'Application updated successfully');
+        }
     }
 
     /**

@@ -25,18 +25,16 @@ class UpdateApplicationsRequest extends FormRequest
     {
         return [
             'name' => 'required|max:100',
-            'email' => 'required|max:100',
+            'email' => 'required|email|max:100',
             'institution' => 'required|max:250',
             'institution_id' => 'required',
             'institution_address' => 'required|max:250',
             'ethnicity' => 'nullable|max:100',
-            'age' => 'required',
+            'age' => 'required|integer',
             'call_type' => 'required|max:100',
+            'call_count' => 'required|integer',
             'payment_type' => 'nullable',
             'payment_id' => 'nullable',
-            'standard_call_count' => 'nullable',
-            'no_holds_call_count' => 'nullable',
-            'sound_room_call_count' => 'nullable',
             'completed' => 'nullable',
             'paid' => 'nullable',
         ];

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CustomerController;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::put('/settings/update/{setting}', [SettingController::class, 'update_2'])
 Route::get('/messages', [SettingController::class, 'messages'])->name('messages');
 
 Route::resources([
+    'customers' => CustomerController::class,
     'applications' => ApplicationController::class,
     'settings' => SettingController::class,
 ]);

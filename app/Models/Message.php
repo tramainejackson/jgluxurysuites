@@ -15,6 +15,6 @@ class Message extends Model
      * @var array
      */
     protected $attributes = [
-        'subject' => 'Contact Message',
+        'subject' => 'Customer Message',
     ];
 }

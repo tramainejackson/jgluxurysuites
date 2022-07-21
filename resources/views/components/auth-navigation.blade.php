@@ -32,7 +32,10 @@
                     <a class="nav-link" href="{{ route('welcome').'#home' }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin_applications">Applicants</a>
+                    <a class="nav-link" href="/applications">Applications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/customers">Customers</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/messages">Messages</a>

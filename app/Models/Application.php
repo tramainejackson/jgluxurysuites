@@ -34,7 +34,16 @@ class Application extends Model
         'ethnicity' => NULL,
         'age' => 18,
         'paid' => 'N',
+        'completed' => 'N',
     ];
+
+    /**
+     * Get the applicant associated with the applications.
+     */
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 
     /**
      * Get the application customer's name.
