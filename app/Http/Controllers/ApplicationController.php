@@ -49,21 +49,22 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        $use_customer = 0;
+        $use_customer_id = 0;
         $customers = Customer::all();
+        $use_customer = null;
 
         if(\request()->query('customer') > 0 && !empty(\request()->query())) {
             if(\request()->query('customer') > 0) {
-                $customer = Customer::find(\request()->query('customer'));
+                $use_customer = Customer::find(\request()->query('customer'));
 
-                if($customer) {
-                    $use_customer = $customer->id;
+                if($use_customer) {
+                    $use_customer_id = $use_customer->id;
                 }
             }
         }
 
         //Return the view
-        return view('applications.create', compact('customers', 'use_customer'));
+        return view('applications.create', compact('customers', 'use_customer', 'use_customer_id'));
     }
 
     /**
@@ -116,8 +117,10 @@ class ApplicationController extends Controller
      */
     public function edit(Application $application)
     {
+        $customers = Customer::all();
+
         //Return the view
-        return view('applications.edit', compact('application'));
+        return view('applications.edit', compact('application', 'customers'));
     }
 
     /**

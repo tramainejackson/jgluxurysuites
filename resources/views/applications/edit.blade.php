@@ -20,6 +20,49 @@
                            href="{{ action([\App\Http\Controllers\CustomerController::class, 'edit'], $application->customer) }}">See
                             Customer Profile</a>
                     </div>
+                @else
+                    <div class="text-center">
+                        <p class="red-text">This application is not assigned to a customer. Select a customer to assign this
+                            application to or create a new customer account from the information provided</p>
+
+                        <!--Grid row-->
+                        <div class="row customer_profile_select" style="">
+
+                            @if($customers->isNotEmpty())
+
+                                <!--Grid column-->
+                                <div class="col-12 col-md-6">
+                                    <div class="md-form mb-0">
+                                        <select class="mdb-select md-form" id="customer_id"
+                                                name="customer_id">
+                                            <option value="" disabled selected>Choose A Customer To Associate With
+                                            </option>
+
+                                            @foreach($customers as $customer)
+                                                <option
+                                                    value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                            @endforeach
+
+                                        </select>
+                                        <label for="customer_id" class="">Customers</label>
+                                    </div>
+
+                                    @if ($errors->has('customer_id'))
+                                        <p class="red-text">{{ $errors->first('customer_id') }}</p>
+                                    @endif
+                                </div>
+                                <!--Grid column-->
+                            @endif
+
+                            <!--Grid column-->
+                            <div class="col-12 col-md-6">
+                                <a class="btn btn-unique"
+                                   onclick="document.getElementById('application-update-form').submit();">Create A
+                                    Customer
+                                    Profile</a>
+                            </div>
+                        </div>
+                    </div>
                 @endif
 
                 <form method="POST"

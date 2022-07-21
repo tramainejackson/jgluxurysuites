@@ -25,7 +25,7 @@
                             <div class="col-12">
                                 <div class="md-form mb-0">
                                     <input type="text" id="name" name="name" class="form-control"
-                                           value="{{ old('name') ? old('name') : '' }}"/>
+                                           value="{{ $use_customer ? $use_customer->name : '' }}"/>
                                     <label for="name" class="">Name</label>
                                 </div>
 
@@ -43,7 +43,7 @@
                             <div class="col-12">
                                 <div class="md-form mb-0">
                                     <input type="email" id="email" name="email" class="form-control"
-                                           value="{{ old('email') ? old('email') : '' }}"/>
+                                           value="{{ $use_customer ? $use_customer->email : '' }}"/>
                                     <label for="email" class="">Email Address</label>
                                 </div>
 
@@ -61,7 +61,7 @@
                             <div class="col-12">
                                 <div class="md-form mb-0">
                                     <input type="text" id="institution" name="institution" class="form-control"
-                                           value="{{ old('institution') ? old('institution') : '' }}"/>
+                                           value="{{ $use_customer ? $use_customer->institution : '' }}"/>
                                     <label for="institution" class="">Institution</label>
                                 </div>
 
@@ -80,7 +80,7 @@
                                 <div class="md-form mb-0">
                                     <input type="number" id="institution_id" name="institution_id" class="form-control"
                                            min="0" step="1"
-                                           value="{{ old('institution_id') ? old('institution_id') : '' }}"/>
+                                           value="{{ $use_customer ? $use_customer->institution_id : '' }}"/>
                                     <label for="institution_id" class="">Institution ID</label>
                                 </div>
 
@@ -99,7 +99,7 @@
                                 <div class="md-form mb-0">
                                     <input type="text" id="institution_address" name="institution_address"
                                            class="form-control"
-                                           value="{{ old('institution_address') ? old('institution_address') : '' }}"/>
+                                           value="{{ $use_customer ? $use_customer->institution_address : '' }}"/>
                                     <label for="institution_address" class="">Institution Address</label>
                                 </div>
 
@@ -117,7 +117,7 @@
                             <div class="col-12">
                                 <div class="md-form mb-0">
                                     <input type="text" id="ethnicity" name="ethnicity" class="form-control"
-                                           value="{{ old('ethnicity') ? old('ethnicity') : '' }}"/>
+                                           value="{{ $use_customer ? $use_customer->ethnicity : '' }}"/>
                                     <label for="ethnicity" class="">Ethnicity</label>
                                 </div>
 
@@ -135,7 +135,7 @@
                             <div class="col-12">
                                 <div class="md-form mb-0">
                                     <input type="number" id="age" name="age" class="form-control" min="18" step="1"
-                                           value="{{ old('age') ? old('age') : '' }}"/>
+                                           value="{{ $use_customer ? $use_customer->age : '' }}"/>
                                     <label for="age" class="">Age</label>
                                 </div>
 
@@ -240,61 +240,67 @@
                         </div>
                         <!--Grid row-->
 
-                        @if($customers->isNotEmpty())
+                        @if(!$use_customer)
+                            @if($customers->isNotEmpty())
+                                <!--Grid row-->
+                                <div class="row customer_profile_select" style="">
+                                    <!--Grid column-->
+                                    <div class="col-12">
+                                        <div class="md-form mb-0">
+                                            <select class="mdb-select md-form" id="customer_id"
+                                                    name="customer_id">
+                                                <option value="" disabled selected>Choose A Customer To Associate With
+                                                </option>
+
+                                                @foreach($customers as $customer)
+                                                    <option
+                                                        value="{{ $customer->id }}" {{ $use_customer_id > 0 && $use_customer_id == $customer->id ? 'selected' : '' }}>{{ $customer->name }}</option>
+                                                @endforeach
+
+                                            </select>
+                                            <label for="customer_id" class="">Customers</label>
+                                        </div>
+
+                                        @if ($errors->has('customer_id'))
+                                            <p class="red-text">{{ $errors->first('customer_id') }}</p>
+                                        @endif
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+                            @endif
+
                             <!--Grid row-->
-                            <div class="row customer_profile_select" style="">
+                            <div class="row">
                                 <!--Grid column-->
-                                <div class="col-12">
-                                    <div class="md-form mb-0">
-                                        <select class="mdb-select md-form" id="customer_id"
-                                                name="customer_id">
-                                            <option value="" disabled selected>Choose A Customer To Associate With
-                                            </option>
+                                <div class="form-group col-12 text-center">
+                                    <label class="d-block form-control-label" for="paid">Create New Customer
+                                        Profile?</label>
 
-                                            @foreach($customers as $customer)
-                                                <option value="{{ $customer->id }}" {{ $use_customer > 0 && $use_customer == $customer->id ? 'selected' : '' }}>{{ $customer->name }}</option>
-                                            @endforeach
-
-                                        </select>
-                                        <label for="customer_id" class="">Customers</label>
+                                    <div class="btn-group">
+                                        <button type="button"
+                                                class="btn btn-rounded btn-blue-grey"
+                                                style="line-height:1.5">
+                                            <input type="checkbox" name="create_customer" value="Y" hidden/>Yes
+                                        </button>
+                                        <button type="button"
+                                                class="btn btn-rounded active btn-danger"
+                                                style="line-height:1.5">
+                                            <input type="checkbox" name="create_customer" value="N" hidden/>No
+                                        </button>
                                     </div>
 
-                                    @if ($errors->has('customer_id'))
-                                        <p class="red-text">{{ $errors->first('customer_id') }}</p>
+                                    @if ($errors->has('create_customer'))
+                                        <p class="red-text">{{ $errors->first('create_customer') }}</p>
                                     @endif
                                 </div>
                                 <!--Grid column-->
                             </div>
                             <!--Grid row-->
+
+                        @else
+                            <input class="d-none invisible" type="number" name="customer_id" value="{{ $use_customer->id }}" hidden />
                         @endif
-
-                        <!--Grid row-->
-                        <div class="row">
-                            <!--Grid column-->
-                            <div class="form-group col-12 text-center">
-                                <label class="d-block form-control-label" for="paid">Create New Customer
-                                    Profile?</label>
-
-                                <div class="btn-group">
-                                    <button type="button"
-                                            class="btn btn-rounded btn-blue-grey"
-                                            style="line-height:1.5">
-                                        <input type="checkbox" name="create_customer" value="Y" hidden/>Yes
-                                    </button>
-                                    <button type="button"
-                                            class="btn btn-rounded active btn-danger"
-                                            style="line-height:1.5">
-                                        <input type="checkbox" name="create_customer" value="N" hidden/>No
-                                    </button>
-                                </div>
-
-                                @if ($errors->has('create_customer'))
-                                    <p class="red-text">{{ $errors->first('create_customer') }}</p>
-                                @endif
-                            </div>
-                            <!--Grid column-->
-                        </div>
-                        <!--Grid row-->
 
                         <div class="text-center text-md-left">
                             <a class="btn btn-dark"
